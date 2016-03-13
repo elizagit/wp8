@@ -21,6 +21,7 @@ namespace VeganWebApi.Controllers
         public List<Restaurant> GetRestaurants()
         {
             return db.Restaurants.ToList();
+                
         }
 
         // GET: api/Restaurants/5

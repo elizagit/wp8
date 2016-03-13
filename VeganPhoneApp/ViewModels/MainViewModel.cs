@@ -15,13 +15,13 @@ namespace VeganPhoneApp.ViewModels
         const string apiUrl = @"http://www.localhost:40134/api/Users";
         public MainViewModel()
         {
-            this.Users = new ObservableCollection<ItemViewModel>();
+            this.Users = new List<ItemViewModel>();
         }
 
         /// <summary>
         /// A collection for ItemViewModel objects.
         /// </summary>
-        public ObservableCollection<ItemViewModel> Users { get; private set; }
+        public List<ItemViewModel> Users { get; private set; }
 
         public bool IsDataLoaded
         {

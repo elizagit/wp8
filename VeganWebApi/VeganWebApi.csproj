@@ -167,6 +167,14 @@
     <Compile Include="Migrations\201602272146221_ChangeICollectionToList.Designer.cs">
       <DependentUpon>201602272146221_ChangeICollectionToList.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201603052043176_UpdateModel.cs" />
+    <Compile Include="Migrations\201603052043176_UpdateModel.Designer.cs">
+      <DependentUpon>201603052043176_UpdateModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201603062043054_UpdateDatabase2.cs" />
+    <Compile Include="Migrations\201603062043054_UpdateDatabase2.Designer.cs">
+      <DependentUpon>201603062043054_UpdateDatabase2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Restaurant.cs" />
     <Compile Include="Models\User.cs" />
@@ -239,6 +247,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201602272146221_ChangeICollectionToList.resx">
       <DependentUpon>201602272146221_ChangeICollectionToList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201603052043176_UpdateModel.resx">
+      <DependentUpon>201603052043176_UpdateModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201603062043054_UpdateDatabase2.resx">
+      <DependentUpon>201603062043054_UpdateDatabase2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
