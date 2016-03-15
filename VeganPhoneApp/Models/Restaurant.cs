@@ -6,8 +6,18 @@ using System.Threading.Tasks;
 
 namespace VeganPhoneApp.Models
 {
-   public class Restaurant
+    public class Restaurant
     {
+
+        /*
+        public Restaurant(string restaurantName, double longitude, double latitude)
+        {
+            this.RestaurantName = restaurantName;
+            this.Latitude = latitude;
+            this.Longitude = longitude;
+        }
+        */
+        //Primary key
         public int RestaurantID { get; set; }
         public string RestaurantName { get; set; }
 
@@ -17,6 +27,7 @@ namespace VeganPhoneApp.Models
         public int UserID { get; set; }
         //Navigation key
         public virtual User User { get; set; }
+
 
     }
 }

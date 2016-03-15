@@ -5,6 +5,8 @@ VisualStudioVersion = 12.0.30501.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VeganWebApi", "VeganWebApi\VeganWebApi.csproj", "{A967B5E3-ABDF-4EFD-BF0F-52C54FCE7A01}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VeganPhoneApp", "VeganPhoneApp\VeganPhoneApp.csproj", "{3ED4DD77-E675-4271-9695-514E081194BC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,6 +25,24 @@ Global
 		{A967B5E3-ABDF-4EFD-BF0F-52C54FCE7A01}.Release|Any CPU.Build.0 = Release|Any CPU
 		{A967B5E3-ABDF-4EFD-BF0F-52C54FCE7A01}.Release|ARM.ActiveCfg = Release|Any CPU
 		{A967B5E3-ABDF-4EFD-BF0F-52C54FCE7A01}.Release|x86.ActiveCfg = Release|Any CPU
+		{3ED4DD77-E675-4271-9695-514E081194BC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3ED4DD77-E675-4271-9695-514E081194BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3ED4DD77-E675-4271-9695-514E081194BC}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{3ED4DD77-E675-4271-9695-514E081194BC}.Debug|ARM.ActiveCfg = Debug|ARM
+		{3ED4DD77-E675-4271-9695-514E081194BC}.Debug|ARM.Build.0 = Debug|ARM
+		{3ED4DD77-E675-4271-9695-514E081194BC}.Debug|ARM.Deploy.0 = Debug|ARM
+		{3ED4DD77-E675-4271-9695-514E081194BC}.Debug|x86.ActiveCfg = Debug|x86
+		{3ED4DD77-E675-4271-9695-514E081194BC}.Debug|x86.Build.0 = Debug|x86
+		{3ED4DD77-E675-4271-9695-514E081194BC}.Debug|x86.Deploy.0 = Debug|x86
+		{3ED4DD77-E675-4271-9695-514E081194BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3ED4DD77-E675-4271-9695-514E081194BC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3ED4DD77-E675-4271-9695-514E081194BC}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{3ED4DD77-E675-4271-9695-514E081194BC}.Release|ARM.ActiveCfg = Release|ARM
+		{3ED4DD77-E675-4271-9695-514E081194BC}.Release|ARM.Build.0 = Release|ARM
+		{3ED4DD77-E675-4271-9695-514E081194BC}.Release|ARM.Deploy.0 = Release|ARM
+		{3ED4DD77-E675-4271-9695-514E081194BC}.Release|x86.ActiveCfg = Release|x86
+		{3ED4DD77-E675-4271-9695-514E081194BC}.Release|x86.Build.0 = Release|x86
+		{3ED4DD77-E675-4271-9695-514E081194BC}.Release|x86.Deploy.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

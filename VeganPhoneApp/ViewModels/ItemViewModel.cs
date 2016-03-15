@@ -17,7 +17,7 @@ namespace VeganPhoneApp.ViewModels
         /// Sample ViewModel property; this property is used to identify the object.
         /// </summary>
         /// <returns></returns>
-        public string UserID
+        public string ID
         {
             get
             {
@@ -28,70 +28,70 @@ namespace VeganPhoneApp.ViewModels
                 if (value != _id)
                 {
                     _id = value;
-                    NotifyPropertyChanged("UserID");
+                    NotifyPropertyChanged("ID");
                 }
             }
         }
 
-        private string _userName;
+        private string _lineOne;
         /// <summary>
         /// Sample ViewModel property; this property is used in the view to display its value using a Binding.
         /// </summary>
         /// <returns></returns>
-        public string UserName
+        public string LineOne
         {
             get
             {
-                return _userName;
+                return _lineOne;
             }
             set
             {
-                if (value != _userName)
+                if (value != _lineOne)
                 {
-                    _userName = value;
-                    NotifyPropertyChanged("UserName");
+                    _lineOne = value;
+                    NotifyPropertyChanged("LineOne");
                 }
             }
         }
 
-        private string _password;
+        private string _lineTwo;
         /// <summary>
         /// Sample ViewModel property; this property is used in the view to display its value using a Binding.
         /// </summary>
         /// <returns></returns>
-        public string Password
+        public string LineTwo
         {
             get
             {
-                return _password;
+                return _lineTwo;
             }
             set
             {
-                if (value != _password)
+                if (value != _lineTwo)
                 {
-                    _password = value;
-                    NotifyPropertyChanged("Password");
+                    _lineTwo = value;
+                    NotifyPropertyChanged("LineTwo");
                 }
             }
         }
 
-        private string _userType;
+        private string _lineThree;
         /// <summary>
         /// Sample ViewModel property; this property is used in the view to display its value using a Binding.
         /// </summary>
         /// <returns></returns>
-        public string UserType
+        public string LineThree
         {
             get
             {
-                return _userType;
+                return _lineThree;
             }
             set
             {
-                if (value != _userType)
+                if (value != _lineThree)
                 {
-                    _userType = value;
-                    NotifyPropertyChanged("UserType");
+                    _lineThree = value;
+                    NotifyPropertyChanged("LineThree");
                 }
             }
         }
