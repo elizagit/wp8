@@ -17,10 +17,10 @@ namespace VeganWebApi.Models
         {
             this.UserID = System.Threading.Interlocked.Increment(ref Counter);
         } */
-        public User()
+       /* public User()
         {
             Restaurants = new List<Restaurant>();  //initialising complex type - is this necessary? 
-        } 
+        } */
         
         /*public User(string userName, string password, UserType usertype)
         {

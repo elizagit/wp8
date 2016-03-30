@@ -32,21 +32,16 @@ namespace VeganWebApi.Migrations
             //      new Person { FullName = "Rowan Miller" }
             //    );
          
-           
-
-             
-
-              
-            // 
+    // 
             var users = new List<User>
-            {
+        {
                 new User { UserName = "Carson", Password = "5647hsns" },
                 new User { UserName = "Meredith", Password = "Alonso"    },
                 new User { UserName = "Arturo",   Password = "Anand"     }
             
             };
             users.ForEach(s => context.Users.AddOrUpdate(u => u.UserName, s));
-            context.SaveChanges();
+            context.SaveChanges();  
 
            /* context.Users.AddOrUpdate(u => u.UserID,
                 new User()
@@ -69,7 +64,7 @@ namespace VeganWebApi.Migrations
                 new User()
                 {
                     
-                    UserName = "Bonnie",
+   *+               UserName = "Bonnie",
                     Password = "OverUnder",
                     UserID = 3
                 }

@@ -5,21 +5,12 @@ using VeganPhoneApp.Resources;
 
 namespace VeganPhoneApp.ViewModels
 {
-
     public class MainViewModel : INotifyPropertyChanged
     {
-        const string apiUrl = @"http://localhost:40134/api/Users";
+        const string apiUrl = @"http://www.contoso.com/api/Books";
         public MainViewModel()
         {
             this.Items = new ObservableCollection<ItemViewModel>();
-            /*var hostnames = Windows.Networking.Connectivity.NetworkInformation.GetHostNames();
-            foreach (var hn in hostnames)
-            {
-                if (hn.IPInformation != null)
-                {
-                    string ipAddress = hn.DisplayName;
-                }
-            }*/
         }
 
         /// <summary>

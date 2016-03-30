@@ -2,7 +2,7 @@
 
 <Deployment xmlns="http://schemas.microsoft.com/windowsphone/2012/deployment" AppPlatformVersion="8.0">
   <DefaultLanguage xmlns="" code="en-US"/>
-  <App xmlns="" ProductID="{3ed4dd77-e675-4271-9695-514e081194bc}" Title="VeganPhoneApp" RuntimeType="Silverlight" Version="1.0.0.0" Genre="apps.normal"  Author="VeganPhoneApp author" Description="Sample description" Publisher="VeganPhoneApp" PublisherID="{9e81a8cb-a421-4d4f-9f4e-4bf247567d9b}">
+  <App xmlns="" ProductID="{53c88744-75cf-401d-a3e2-31bc9c98feae}" Title="VeganPhoneApp" RuntimeType="Silverlight" Version="1.0.0.0" Genre="apps.normal"  Author="VeganPhoneApp author" Description="Sample description" Publisher="VeganPhoneApp" PublisherID="{68493e44-cd12-4933-8562-f93f422b5db1}">
     <IconPath IsRelative="true" IsResource="false">Assets\ApplicationIcon.png</IconPath>
     <Capabilities>
       <Capability Name="ID_CAP_NETWORKING"/>
