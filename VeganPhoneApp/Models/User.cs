@@ -30,11 +30,5 @@ namespace VeganPhoneApp.Models
         public string UserName { get; set; }
         public string Password { get; set; }
 
-        // public UserType? Usertype { get; set; }
-
-
-
-        //navigation property 
-        public virtual ICollection<Restaurant> Restaurants { get; set; }
     }
 }
