@@ -77,7 +77,7 @@ namespace VeganPhoneApp.ViewModels
                             LineOne = restaurant.RestaurantName,
                             //LineTwo = user.Password,
                             LineTwo = restaurant.User.UserName,
-                            LineThree = restaurant.Latitude.ToString(),
+                            LineThree = restaurant.Rating.ToString(),
 
 
 

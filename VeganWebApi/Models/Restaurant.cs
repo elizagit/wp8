@@ -22,6 +22,9 @@ namespace VeganWebApi.Models
 
         public double Longitude { get; set; }
         public double Latitude { get; set; }
+
+        public int Rating { get; set; }
+       
         //Foreign Key
         public int UserID { get; set; }
         //Navigation key
