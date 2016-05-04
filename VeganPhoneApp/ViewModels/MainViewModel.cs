@@ -7,12 +7,15 @@ using System.Net.NetworkInformation;
 using System.Collections.Generic;
 using Newtonsoft.Json;
 using VeganPhoneApp.Models;
+using System.Windows;
+
 
 namespace VeganPhoneApp.ViewModels
 {
     public class MainViewModel : INotifyPropertyChanged
     {
-
+       
+        
         //const string apiUrl = @"http://169.254.21.12/api/Users";  had here originally but moved it down to LoadData() method. 
         public MainViewModel()
         {
@@ -36,7 +39,7 @@ namespace VeganPhoneApp.ViewModels
         public bool IsDataLoaded
         {
             get;
-            private set;
+            set;
         }
 
         /// <summary>
@@ -50,14 +53,19 @@ namespace VeganPhoneApp.ViewModels
                 //this.Items.Add(new ItemViewModel() { ID = "0", LineOne = "Please Wait...", LineTwo = "Please wait while the catalog is downloaded from the server.", LineThree = null });
                 WebClient webClient = new WebClient();
                 webClient.Headers["Accept"] = "application/json";
-                webClient.DownloadStringCompleted += new DownloadStringCompletedEventHandler(webClient_DownloadCatalogCompleted);
+                webClient.DownloadStringCompleted += new DownloadStringCompletedEventHandler(webClient_DownloadCatalogCompleted); //initiates event handler
+                
+                
                 //webClient.DownloadStringAsync(new Uri(@"http://169.254.21.12/api/Users"));
-                webClient.DownloadStringAsync(new Uri(@"http://169.254.21.12/api/Restaurants"));
+                webClient.DownloadStringAsync(new Uri(@"http://169.254.21.12/api/Restaurants"));  //this gets data from VeganWebApi and passes it to DownloadStringCompletedEventArgs e
+               
             }
         }
 
-        private void webClient_DownloadCatalogCompleted(object sender, DownloadStringCompletedEventArgs e)
+        private void webClient_DownloadCatalogCompleted(object sender, DownloadStringCompletedEventArgs e)  //sender is the object in XAML that the handler is attached to.  e is the data that is sent. 
+        // DownloadStringCompletedEventArgs gets the data that is downloaded by the DownloadStringAsync method.
         {
+            
             try
             {
                 //this.Items.Clear();
@@ -66,6 +74,8 @@ namespace VeganPhoneApp.ViewModels
                     //var users = JsonConvert.DeserializeObject<User[]>(e.Result);
                     var restaurants = JsonConvert.DeserializeObject<Restaurant[]>(e.Result);
                     int id = 0;
+                   
+                   
                     //foreach (User user in users)
                     foreach (Restaurant restaurant in restaurants)
                     {
@@ -79,10 +89,11 @@ namespace VeganPhoneApp.ViewModels
                             LineTwo = restaurant.User.UserName,
                             LineThree = restaurant.Rating.ToString(),
 
-
+                            
 
                         });
                     }
+                     
                     this.IsDataLoaded = true;
                 }
             }
@@ -98,8 +109,12 @@ namespace VeganPhoneApp.ViewModels
                 });
             }
         }
+        
 
-        public event PropertyChangedEventHandler PropertyChanged;
+ 
+        
+
+        public event PropertyChangedEventHandler PropertyChanged; //an event declaration of delegate type PropertyChangedEventHandler
         private void NotifyPropertyChanged(String propertyName)
         {
             PropertyChangedEventHandler handler = PropertyChanged;
@@ -108,5 +123,6 @@ namespace VeganPhoneApp.ViewModels
                 handler(this, new PropertyChangedEventArgs(propertyName));
             }
         }
+
     }
 }

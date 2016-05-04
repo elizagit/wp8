@@ -1,4 +1,4 @@
-﻿<phone:PhoneApplicationPage
+﻿<phone:PhoneApplicationPage x:Name="SearchRestaurants1"
     x:Class="VeganPhoneApp.MainPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -43,22 +43,32 @@
         <!--TitlePanel contains the name of the application and page title-->
         <StackPanel Grid.Row="0" Margin="12,17,0,28">
             <TextBlock Text="MY APPLICATION" Style="{StaticResource PhoneTextNormalStyle}"/>
-            <TextBlock Text="out and about vegan" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
+            <!--<TextBlock Text="out and about vegan" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>-->
+            <TextBox Name="txtinput" Height="72" TextWrapping="Wrap" />
+            <TextBlock Name="txtop" TextWrapping="Wrap" Height ="22" Text=""/>
+
+
+            <!-- <Button Height="72" Width="380" Content="Search Restaurants" Click="webClient_DownloadCatalogCompleted">
+                
+            </Button>-->
         </StackPanel>
+
 
         <!--ContentPanel contains LongListSelector and LongListSelector ItemTemplate. Place additional content here-->
         <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
+
             <phone:LongListSelector x:Name="MainLongListSelector" Margin="0,0,-12,0" ItemsSource="{Binding Items}" SelectionChanged="MainLongListSelector_SelectionChanged">
                 <phone:LongListSelector.ItemTemplate>
                     <DataTemplate>
-                      <StackPanel Margin="0,0,0,17">
-                          <TextBlock Text="{Binding LineOne}" TextWrapping="Wrap" Style="{StaticResource PhoneTextExtraLargeStyle}"/>
-                          <TextBlock Text="{Binding LineTwo}" TextWrapping="Wrap" Margin="12,-6,12,0" Style="{StaticResource PhoneTextSubtleStyle}"/>
-                      </StackPanel>
+                        <StackPanel Margin="0,0,0,17">
+                            <TextBlock Text="{Binding LineOne}" TextWrapping="Wrap" Style="{StaticResource PhoneTextExtraLargeStyle}"/>
+                            <TextBlock Text="{Binding LineTwo}" TextWrapping="Wrap" Margin="12,-6,12,0" Style="{StaticResource PhoneTextSubtleStyle}"/>
+                        </StackPanel>
                     </DataTemplate>
                 </phone:LongListSelector.ItemTemplate>
             </phone:LongListSelector>
         </Grid>
+        <Button x:Name ="SearchRestaurants" Content="Search Restaurants" HorizontalAlignment="Left" Margin="46,138,0,0" VerticalAlignment="Top" Width="259" Click="SearchRestaurants_Click"/>
 
         <!--Uncomment to see an alignment grid to help ensure your controls are
             aligned on common boundaries.  The image has a top margin of -32px to
