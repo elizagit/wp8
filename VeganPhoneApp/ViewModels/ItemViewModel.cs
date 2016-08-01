@@ -95,6 +95,26 @@ namespace VeganPhoneApp.ViewModels
                 }
             }
         }
+      /* private string _newRating;
+        /// <summary>
+        /// Sample ViewModel property; this property is used in the view to display its value using a Binding.
+        /// </summary>
+        /// <returns></returns>
+        public string NewRating
+        {
+            get
+            {
+                return _newRating;
+            }
+            set
+            {
+                if (value != _newRating)
+                {
+                    _newRating = value;
+                    NotifyPropertyChanged("NewRating");
+                }
+            }
+        } */
 
         public event PropertyChangedEventHandler PropertyChanged;
         private void NotifyPropertyChanged(String propertyName)

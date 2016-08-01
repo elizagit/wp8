@@ -17,19 +17,35 @@
     <!--Data context is set to sample data above and first item in sample data collection below and LayoutRoot contains the root grid where all other page content is placed-->
     <Grid x:Name="LayoutRoot" Background="Transparent" d:DataContext="{Binding Items[0]}">
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="168"/>
             <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
 
+        </Grid.RowDefinitions>
         <!--TitlePanel contains the name of the application and page title-->
-        <StackPanel x:Name="TitlePanel" Grid.Row="0" Margin="12,17,0,28">
-            <TextBlock Text="MY APPLICATION" Style="{StaticResource PhoneTextNormalStyle}"/>
+        <StackPanel x:Name="TitlePanel" Grid.Row="0" Margin="12,17,0,35">
+            <TextBlock Text="Out and About Vegan" Style="{StaticResource PhoneTextNormalStyle}"/>
             <TextBlock Text="{Binding LineOne}" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
         </StackPanel>
 
         <!--ContentPanel contains details text. Place additional content here-->
-        <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
-            <TextBlock Text="{Binding LineThree}" TextWrapping="Wrap" Style="{StaticResource PhoneTextNormalStyle}"/>
+        <Grid x:Name="ContentPanel" Margin="12,0,12,0" Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+
+     </Grid.RowDefinitions>
+             <StackPanel x:Name="RestaurantRating" Margin="10,0,0,0">
+                <!--<TextBlock Text="{Binding LineThree}" TextWrapping="Wrap" Style="{StaticResource PhoneTextNormalStyle}"/> -->
+              <TextBlock Text="Choose a rating from 1-10" Style="{StaticResource PhoneTextNormalStyle}" Margin="10,10,10,20" />
+                <TextBox Name="txtinput" Height="72" TextWrapping="Wrap" Grid.ColumnSpan="3" TextChanged="txtinput_TextChanged"/>
+            <Button x:Name="AddRating" Height ="80" Content="Add Rating" Grid.ColumnSpan="3" Margin="10,10, 10, 10" Click="AddRating_Click"/>
+          <!-- <Button x:Name ="SearchRestaurants" Content="Get Restaurant Rating" HorizontalAlignment="Left" Margin="10,10,0,10" VerticalAlignment="Top" Width="426" Click="SearchRestaurants_Click" Height="81"/>  -->
+
+            </StackPanel> 
+           
         </Grid>
 
         <!--Uncomment to see an alignment grid to help ensure your controls are
@@ -37,7 +53,8 @@
             account for the System Tray. Set this to 0 (or remove the margin altogether)
             if the System Tray is hidden.
 
-            Before shipping remove this XAML and the image itself.-->
+           
+        Before shipping remove this XAML and the image itself.-->
         <!--<Image Source="/Assets/AlignmentGrid.png" VerticalAlignment="Top" Height="800" Width="480" Margin="0,-32,0,0" Grid.Row="0" Grid.RowSpan="2" IsHitTestVisible="False" />-->
     </Grid>
 

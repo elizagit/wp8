@@ -57,7 +57,7 @@ namespace VeganPhoneApp.ViewModels
                 
                 
                 //webClient.DownloadStringAsync(new Uri(@"http://169.254.21.12/api/Users"));
-                webClient.DownloadStringAsync(new Uri(@"http://169.254.21.12/api/Restaurants"));  //this gets data from VeganWebApi and passes it to DownloadStringCompletedEventArgs e
+                webClient.DownloadStringAsync(new Uri(@"http://169.254.21.12/api/Restaurant"));  //this gets data from VeganWebApi and passes it to DownloadStringCompletedEventArgs e
                
             }
         }
@@ -86,8 +86,8 @@ namespace VeganPhoneApp.ViewModels
                             //LineOne = user.UserName,
                             LineOne = restaurant.RestaurantName,
                             //LineTwo = user.Password,
-                            LineTwo = restaurant.User.UserName,
-                            LineThree = restaurant.Rating.ToString(),
+                            LineTwo = restaurant.Rating.ToString()
+                            //LineThree = restaurant.Rating.ToString(),
 
                             
 
@@ -109,10 +109,29 @@ namespace VeganPhoneApp.ViewModels
                 });
             }
         }
-        
 
+      /*   private Rating _newRating;
+      /// <summary>
+      /// Sample ViewModel property; this property is used in the view to display its value using a Binding.
+      /// </summary>
+      /// <returns></returns>
+      public string NewRating
+      {
+          get
+          {
+              return _newRating;
+          }
+          set
+          {
+              if (value != _newRating)
+              {
+                  _newRating = value;
+                  NotifyPropertyChanged("NewRating");
+              }
+          }
+      }
  
-        
+        */
 
         public event PropertyChangedEventHandler PropertyChanged; //an event declaration of delegate type PropertyChangedEventHandler
         private void NotifyPropertyChanged(String propertyName)

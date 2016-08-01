@@ -201,6 +201,10 @@
     <Compile Include="Migrations\201604150903489_AddingRatingPropertyToRestaurant.Designer.cs">
       <DependentUpon>201604150903489_AddingRatingPropertyToRestaurant.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201605070744392_AddSumOfRatingsAndNumberOfRatings.cs" />
+    <Compile Include="Migrations\201605070744392_AddSumOfRatingsAndNumberOfRatings.Designer.cs">
+      <DependentUpon>201605070744392_AddSumOfRatingsAndNumberOfRatings.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Restaurant.cs" />
     <Compile Include="Models\User.cs" />
@@ -284,6 +288,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201604150903489_AddingRatingPropertyToRestaurant.resx">
       <DependentUpon>201604150903489_AddingRatingPropertyToRestaurant.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605070744392_AddSumOfRatingsAndNumberOfRatings.resx">
+      <DependentUpon>201605070744392_AddSumOfRatingsAndNumberOfRatings.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

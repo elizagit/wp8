@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -8,6 +9,9 @@ using System.Windows.Navigation;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
 using VeganPhoneApp.Resources;
+using Newtonsoft.Json;
+using VeganPhoneApp.Models;
+using VeganPhoneApp.ViewModels;
 
 namespace VeganPhoneApp
 {
@@ -18,6 +22,7 @@ namespace VeganPhoneApp
         {
             InitializeComponent();
 
+            //DataContext = App.ViewModel;
             // Sample code to localize the ApplicationBar
             //BuildLocalizedApplicationBar();
         }
@@ -36,6 +41,69 @@ namespace VeganPhoneApp
             }
         }
 
+        private void txtinput_TextChanged(object sender, RoutedEventArgs e)
+        {
+
+        }
+      
+
+      private void AddRating_Click(object sender, RoutedEventArgs e)
+        {
+            
+        }
+        
+ /* {
+       SendRequest();
+  }
+   void SendRequest()
+  {
+      string API_KEY = "-";
+      string RESULT_FORMAT = "xml";
+      string url = string.Format("http://169.254.21.12/api/Restaurants", API_KEY, RESULT_FORMAT);
+      WebClient wc = new WebClient();
+      wc.DownloadStringAsync(new Uri(url));
+      wc.DownloadStringCompleted += DownloadStringCompleted;
+  }
+
+  void DownloadStringCompleted(object sender, DownloadStringCompletedEventArgs e)
+  { 
+      String rating = "";
+      rating = txtinput.Text;
+          
+       try
+      {
+          //this.Items.Clear();
+          if (e.Result != null)
+          {
+              var restaurants = JsonConvert.DeserializeObject<Restaurant[]>(e.Result);
+              
+                    
+             foreach(Restaurant restaurant in restaurants)
+             {
+
+                   restaurant.NumberOfRatings++;
+                   restaurant.SumOfRatings += Convert.ToInt32(rating);
+
+             }                           
+
+             
+               MainViewModel MM = new MainViewModel();
+              MM.IsDataLoaded = true;
+          }
+      }
+        catch (Exception ex)
+      {
+          
+      }
+  
+                
+  }
+  }
+   */
+     
+        } 
+}
+        
         // Sample code for building a localized ApplicationBar
         //private void BuildLocalizedApplicationBar()
         //{
@@ -51,5 +119,4 @@ namespace VeganPhoneApp
         //    ApplicationBarMenuItem appBarMenuItem = new ApplicationBarMenuItem(AppResources.AppBarMenuItemText);
         //    ApplicationBar.MenuItems.Add(appBarMenuItem);
         //}
-    }
-}
+    

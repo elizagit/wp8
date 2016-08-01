@@ -42,7 +42,7 @@
 
         <!--TitlePanel contains the name of the application and page title-->
         <StackPanel Grid.Row="0" Margin="12,17,0,28">
-            <TextBlock Text="MY APPLICATION" Style="{StaticResource PhoneTextNormalStyle}"/>
+            <TextBlock Text="Enter Restaurant Name" Style="{StaticResource PhoneTextNormalStyle}"/>
             <!--<TextBlock Text="out and about vegan" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>-->
             <TextBox Name="txtinput" Height="72" TextWrapping="Wrap" />
             <TextBlock Name="txtop" TextWrapping="Wrap" Height ="22" Text=""/>
@@ -68,7 +68,7 @@
                 </phone:LongListSelector.ItemTemplate>
             </phone:LongListSelector>
         </Grid>
-        <Button x:Name ="SearchRestaurants" Content="Search Restaurants" HorizontalAlignment="Left" Margin="46,138,0,0" VerticalAlignment="Top" Width="259" Click="SearchRestaurants_Click"/>
+        <Button x:Name ="SearchRestaurants" Content="Get Restaurant Rating" HorizontalAlignment="Left" Margin="46,138,0,0" VerticalAlignment="Top" Width="393" Click="SearchRestaurants_Click" Height="72"/>
 
         <!--Uncomment to see an alignment grid to help ensure your controls are
             aligned on common boundaries.  The image has a top margin of -32px to

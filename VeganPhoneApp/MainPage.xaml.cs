@@ -62,7 +62,7 @@ namespace VeganPhoneApp
         {
             string API_KEY = "-";
             string RESULT_FORMAT = "xml";
-            string url = string.Format("http://169.254.21.12/api/Restaurants", API_KEY, RESULT_FORMAT);
+            string url = string.Format("http://169.254.21.12/api/Restaurant", API_KEY, RESULT_FORMAT);
             WebClient wc = new WebClient();
             wc.DownloadStringAsync(new Uri(url));
             wc.DownloadStringCompleted += DownloadStringCompleted;
@@ -79,15 +79,15 @@ namespace VeganPhoneApp
                 if (e.Result != null)
                 {
                     var restaurants = JsonConvert.DeserializeObject<Restaurant[]>(e.Result);
-                    int id = 0;
+                    double averageRating;
 
                       foreach (Restaurant restaurant in restaurants)
                     {
-                        if(name == restaurant.RestaurantName)
+                        if(name.ToUpper() == restaurant.RestaurantName.ToUpper())
                         {
-                            txtop.Text = restaurant.Rating.ToString();
-                        
+                            averageRating = restaurant.SumOfRatings / restaurant.NumberOfRatings;
 
+                            txtop.Text = averageRating.ToString();
                             
 
                         }

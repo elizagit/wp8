@@ -78,7 +78,10 @@ namespace VeganWebApi.Migrations
                  RestaurantName = "Happy Foods",
                  Longitude = 45.4,
                  Latitude = 51.2,
-                 Rating = 10
+                 SumOfRatings = 10,
+                 NumberOfRatings = 1
+                 
+
                
 
              },
@@ -91,7 +94,9 @@ namespace VeganWebApi.Migrations
                  RestaurantName = "Cornucopia",
                  Longitude = 45.4,
                  Latitude = 51.2,
-                  Rating = 8
+                  SumOfRatings = 8,
+                 NumberOfRatings = 1
+                 
                
 
              },
@@ -102,7 +107,8 @@ namespace VeganWebApi.Migrations
                  RestaurantName = "Vegan as it should be",
                  Longitude = 45.4,
                  Latitude = 51.2,
-                  Rating = 10
+                   SumOfRatings = 10,
+                 NumberOfRatings = 1
                
 
              }
