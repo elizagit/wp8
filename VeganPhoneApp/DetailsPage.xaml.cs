@@ -48,18 +48,15 @@ namespace VeganPhoneApp
       
 
       private void AddRating_Click(object sender, RoutedEventArgs e)
-        {
-            
-        }
         
- /* {
+  {
        SendRequest();
   }
    void SendRequest()
   {
       string API_KEY = "-";
       string RESULT_FORMAT = "xml";
-      string url = string.Format("http://169.254.21.12/api/Restaurants", API_KEY, RESULT_FORMAT);
+      string url = string.Format("http://169.254.21.12/api/Restaurant", API_KEY, RESULT_FORMAT);
       WebClient wc = new WebClient();
       wc.DownloadStringAsync(new Uri(url));
       wc.DownloadStringCompleted += DownloadStringCompleted;
@@ -93,16 +90,16 @@ namespace VeganPhoneApp
       }
         catch (Exception ex)
       {
-          
+          txtop.Text = "an error occurred";
       }
   
                 
   }
   }
-   */
+   
      
         } 
-}
+
         
         // Sample code for building a localized ApplicationBar
         //private void BuildLocalizedApplicationBar()
