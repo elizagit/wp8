@@ -8,6 +8,9 @@ using System.Collections.Generic;
 using Newtonsoft.Json;
 using VeganPhoneApp.Models;
 using System.Windows;
+using System.Net.Http;
+using System.Net.Http.Headers;
+using System.Threading.Tasks;
 
 
 namespace VeganPhoneApp.ViewModels
@@ -16,7 +19,6 @@ namespace VeganPhoneApp.ViewModels
     {
        
         
-        //const string apiUrl = @"http://169.254.21.12/api/Users";  had here originally but moved it down to LoadData() method. 
         public MainViewModel()
         {
             /* var hostnames = Windows.Networking.Connectivity.NetworkInformation.GetHostNames();  //code to check the internal address of WP8E
@@ -45,18 +47,88 @@ namespace VeganPhoneApp.ViewModels
         /// <summary>
         /// Creates and adds a few ItemViewModel objects into the Items collection.
         /// </summary>
-        public void LoadData()
+        public async void LoadData()
         {
-            if (this.IsDataLoaded == false)
+
+           HttpClient client = new HttpClient();
+            
+
+                client.BaseAddress = new Uri("http://169.254.21.12");
+
+                var url = "api/Restaurant";
+
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+                HttpResponseMessage response = await client.GetAsync(url);
+
+                
+                    var data = response.Content.ReadAsStringAsync();
+                    var yourResult= JsonConvert.DeserializeObject<Restaurant[]>(data.Result.ToString());
+                
+
+            int id = 0;
+
+            foreach (var item in yourResult )
+            {
+                this.Items.Add(new ItemViewModel()
+                {
+                    ID = (id++).ToString(),
+                    LineOne = item.RestaurantName,
+                 
+                    LineTwo = item.Rating.ToString(),
+                    LineThree = item.NumberOfRatings.ToString(),
+                    LineFour = item.SumOfRatings.ToString(),
+                    
+                    
+                   
+                });
+            }
+
+            this.IsDataLoaded = true;
+
+           /* var HealthyHabits = new Restaurant() { RestaurantID = 33, RestaurantName = "Heathy Habits", Rating = 9, SumOfRatings = 1, NumberOfRatings = 1 };
+            response = await client.PostAsJsonAsync("api/restaurants", HealthyHabits);
+            if (response.IsSuccessStatusCode)
+            {
+                Uri HealthyHabitsUrl = response.Headers.Location;
+
+                // HTTP PUT
+                HealthyHabits.Rating = 4;   // Update price
+                response = await client.PutAsJsonAsync(HealthyHabitsUrl, HealthyHabits);
+
+                // HTTP DELETE
+                response = await client.DeleteAsync(HealthyHabitsUrl);
+            }*/
+        }
+                     
+
+                    
+                
+/*
+                // HTTP POST
+                var HappyHippo = new Restaurant() { RestaurantName = "Happy Hippo", RestaurantID = 22, Rating = 7, NumberOfRatings = 1, SumOfRatings = 7 };
+                response = await client.PostAsJsonAsync("api/restaurant", HappyHippo);
+                if (response.IsSuccessStatusCode)
+                {
+                    Uri HappyHippoUrl = response.Headers.Location;
+
+                    // HTTP PUT
+                    HappyHippo.Rating = 4;   // Update rating
+                    response = await client.PutAsJsonAsync(HappyHippoUrl, HappyHippo);
+
+                    // HTTP DELETE
+                    response = await client.DeleteAsync(HappyHippoUrl);
+                }
+            }
+        }
+    
+       /*     if (this.IsDataLoaded == false)
             {
                 //this.Items.Clear();
                 //this.Items.Add(new ItemViewModel() { ID = "0", LineOne = "Please Wait...", LineTwo = "Please wait while the catalog is downloaded from the server.", LineThree = null });
                 WebClient webClient = new WebClient();
                 webClient.Headers["Accept"] = "application/json";
                 webClient.DownloadStringCompleted += new DownloadStringCompletedEventHandler(webClient_DownloadCatalogCompleted); //initiates event handler
-                
-                
-                //webClient.DownloadStringAsync(new Uri(@"http://169.254.21.12/api/Users"));
                 webClient.DownloadStringAsync(new Uri(@"http://169.254.21.12/api/Restaurant"));  //this gets data from VeganWebApi and passes it to DownloadStringCompletedEventArgs e
                
             }

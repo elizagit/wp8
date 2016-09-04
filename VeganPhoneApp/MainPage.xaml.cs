@@ -32,7 +32,7 @@ namespace VeganPhoneApp
         // Load data for the ViewModel Items
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            if (!App.ViewModel.IsDataLoaded)
+            if (!App.ViewModel.IsDataLoaded) 
             {
                 App.ViewModel.LoadData();
             }
@@ -41,6 +41,7 @@ namespace VeganPhoneApp
 
         // Handle selection changed on LongListSelector
         private void MainLongListSelector_SelectionChanged(object sender, SelectionChangedEventArgs e)
+
         {
             // If selected item is null (no selection) do nothing
             if (MainLongListSelector.SelectedItem == null)
@@ -51,10 +52,12 @@ namespace VeganPhoneApp
 
             // Reset selected item to null (no selection)
             MainLongListSelector.SelectedItem = null;
+
+            
         }
 
        
-             private void SearchRestaurants_Click(object sender, RoutedEventArgs e)
+       /*      private void SearchRestaurants_Click(object sender, RoutedEventArgs e)
         {
             SendRequest();
         }
@@ -98,11 +101,13 @@ namespace VeganPhoneApp
             }
               catch (Exception ex)
             {
-                txtop.Text = "an error occurred";
+                txtop.Text = ex.Message;
             }
                 
         }
+         */
         }
+         
         
 
         // Sample code for building a localized ApplicationBar

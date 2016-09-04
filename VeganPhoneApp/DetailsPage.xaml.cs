@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
+using System.Net.Http;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Navigation;
@@ -12,6 +13,8 @@ using VeganPhoneApp.Resources;
 using Newtonsoft.Json;
 using VeganPhoneApp.Models;
 using VeganPhoneApp.ViewModels;
+using System.Threading.Tasks;
+using System.Net.Http.Headers;
 
 namespace VeganPhoneApp
 {
@@ -37,83 +40,147 @@ namespace VeganPhoneApp
                 {
                     int index = int.Parse(selectedIndex);
                     DataContext = App.ViewModel.Items[index];
+                   
                 }
-            }
+                           }
         }
-
-        private void txtinput_TextChanged(object sender, RoutedEventArgs e)
+             private void txtinput_TextChanged(object sender, TextChangedEventArgs e)
         {
 
         }
-      
 
-      private void AddRating_Click(object sender, RoutedEventArgs e)
-        
-  {
-       SendRequest();
-  }
-   void SendRequest()
-  {
-      string API_KEY = "-";
-      string RESULT_FORMAT = "xml";
-      string url = string.Format("http://169.254.21.12/api/Restaurant", API_KEY, RESULT_FORMAT);
-      WebClient wc = new WebClient();
-      wc.DownloadStringAsync(new Uri(url));
-      wc.DownloadStringCompleted += DownloadStringCompleted;
-  }
+         private async void AddRating_Click(object sender, RoutedEventArgs e)
+        {
+            //string newRating = txtinput.Text;
 
-  void DownloadStringCompleted(object sender, DownloadStringCompletedEventArgs e)
-  { 
-      String rating = "";
-      rating = txtinput.Text;
+           string name = Name.Text;
+
+
+            HttpClient client = new HttpClient();
+
+
+            client.BaseAddress = new Uri("http://169.254.21.12");
+
+            var url = "api/Restaurant?name=" + name;
+
+            client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+            HttpResponseMessage response = await client.GetAsync(url);
+
+
+            var data = response.Content.ReadAsStringAsync();
+            var yourResult = JsonConvert.DeserializeObject<Restaurant>(data.Result.ToString());
+
+            int NewRating = Convert.ToInt32(txtinput.Text);
+            int NewSumOfRatings = yourResult.SumOfRatings + NewRating;
+            yourResult.NumberOfRatings++;
+
+
+            double UpdatedRatingBefore = NewSumOfRatings / yourResult.NumberOfRatings;
+            double UpdatedRatingAfter = Math.Round(UpdatedRatingBefore, 0);
+            int UpdateDatabase = Convert.ToInt32(UpdatedRatingAfter);
+
+            var updatedRestaurant = new Restaurant() { RestaurantID = yourResult.RestaurantID, RestaurantName = yourResult.RestaurantName, Rating = UpdateDatabase, SumOfRatings = NewSumOfRatings, NumberOfRatings = yourResult.NumberOfRatings};
+
+            response = await client.PutAsJsonAsync("api/Restaurant?name=" + name, updatedRestaurant);
+         // if (response.IsSuccessStatusCode)
+          //{
+             // Uri HealthyHabitsUrl = response.Headers.Location;
+
+              // HTTP PUT
+              //HealthyHabits.Rating = 4;   // Update price
+              //response = await client.PutAsJsonAsync(HealthyHabitsUrl, HealthyHabits);
+
+              // HTTP DELETEa
+              //response = await client.DeleteAsync(HealthyHabitsUrl);
           
-       try
-      {
-          //this.Items.Clear();
-          if (e.Result != null)
+            txtop.Text = UpdateDatabase.ToString();
+
+
+
+
+           
+             
+          
+         }
+
+        }
+
+
+
+
+
+
+
+
+       
+
+
+
+            
+            
+               
+               /* if (response.IsSuccessStatusCode)
+                {
+                    Console.Write("Success");
+                }
+                else
+                    Console.Write("Error");
+                 */
+            }  
+    
+        
+
+    
+
+      
+         /* try
           {
-              var restaurants = JsonConvert.DeserializeObject<Restaurant[]>(e.Result);
-              
-                    
-             foreach(Restaurant restaurant in restaurants)
-             {
+              Restaurant restaurant = new Restaurant();
 
-                   restaurant.NumberOfRatings++;
-                   restaurant.SumOfRatings += Convert.ToInt32(rating);
-
-             }                           
 
              
-               MainViewModel MM = new MainViewModel();
-              MM.IsDataLoaded = true;
+              restaurant.Rating = Convert.ToInt32(txtinput.Text);
+              
+
+              string jsonData = JsonConvert.SerializeObject(restaurant);
+
+              WebClient webClient = new WebClient();
+              webClient.Headers["Content-type"] = "application/json";
+              webClient.Encoding = System.Text.Encoding.UTF8;
+
+              Uri uri = new Uri("http://localhost:27448/api/restaurant/",  UriKind.Absolute);
+              webClient.UploadStringCompleted += new UploadStringCompletedEventHandler(webClient_UploadStringCompleted);  
+              webClient.UploadStringAsync(uri, "POST", jsonData);
+          }
+          catch (Exception ex)
+          {
+              MessageBox.Show(ex.Message);
           }
       }
-        catch (Exception ex)
-      {
-          txtop.Text = "an error occurred";
-      }
+        void webClient_UploadStringCompleted(object sender, UploadStringCompletedEventArgs e)
+{
+   try
+   {
+       Restaurant restaurant = JsonConvert.DeserializeObject<Restaurant>(e.Result);
+   }
+   catch (Exception ex)
+   {
+      MessageBox.Show(ex.Message);
+   }
+}
+private int Int32(string p)
+{
+ 	throw new NotImplementedException();
+}
+      
+  }
+
+
+ }
   
-                
-  }
-  }
    
-     
-        } 
-
+     */
         
-        // Sample code for building a localized ApplicationBar
-        //private void BuildLocalizedApplicationBar()
-        //{
-        //    // Set the page's ApplicationBar to a new instance of ApplicationBar.
-        //    ApplicationBar = new ApplicationBar();
 
-        //    // Create a new button and set the text value to the localized string from AppResources.
-        //    ApplicationBarIconButton appBarButton = new ApplicationBarIconButton(new Uri("/Assets/AppBar/appbar.add.rest.png", UriKind.Relative));
-        //    appBarButton.Text = AppResources.AppBarButtonText;
-        //    ApplicationBar.Buttons.Add(appBarButton);
-
-        //    // Create a new menu item with the localized string from AppResources.
-        //    ApplicationBarMenuItem appBarMenuItem = new ApplicationBarMenuItem(AppResources.AppBarMenuItemText);
-        //    ApplicationBar.MenuItems.Add(appBarMenuItem);
-        //}
-    
+      
