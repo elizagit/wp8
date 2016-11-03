@@ -17,44 +17,60 @@
     <!--Data context is set to sample data above and first item in sample data collection below and LayoutRoot contains the root grid where all other page content is placed-->
     <Grid x:Name="LayoutRoot" Background="Transparent" d:DataContext="{Binding Items[0]}">
         <Grid.RowDefinitions>
-            <RowDefinition Height="168"/>
+            <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <!--TitlePanel contains the name of the application and page title-->
         <StackPanel x:Name="TitlePanel" Grid.Row="0" Margin="12,17,0,35">
             <TextBlock Text="Out and About Vegan" Style="{StaticResource PhoneTextNormalStyle}"/>
+            <!--<Image Margin="9,9,9,9" Source="Assets/Images/pig.jpg"  Stretch="Fill" Height="158" RenderTransformOrigin="0.507,0.311"/>-->
+
             <TextBlock Name ="Name" Text="{Binding LineOne}" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
         </StackPanel>
 
         <!--ContentPanel contains details text. Place additional content here-->
         <Grid x:Name="ContentPanel" Margin="12,0,12,0" Grid.Row="1" >
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-           </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="*"/>
 
-            </Grid.RowDefinitions>
-             <StackPanel x:Name="RestaurantDetails" Margin="10,0,0,0" >
-                <TextBlock Name ="Rating" Text="{Binding LineTwo}" TextWrapping="Wrap" Style="{StaticResource PhoneTextNormalStyle}"/>
-                <TextBlock Name ="NumberOfRatings" Text="{Binding LineThree}" TextWrapping="Wrap" Style="{StaticResource PhoneTextNormalStyle}"/>
-                <TextBlock Name ="SumOfRatings" Text="{Binding LineFour}" TextWrapping="Wrap" Style="{StaticResource PhoneTextNormalStyle}"/>
-                <TextBlock Name ="ID" Text="{Binding LineFive}" TextWrapping="Wrap" Style="{StaticResource PhoneTextNormalStyle}"/>
+            <StackPanel x:Name="RestaurantDetails" Margin="10,0,0,0" >
+                <StackPanel Margin="0,0,0,10" Orientation="Horizontal">
+                    <TextBlock Text="Address:" TextWrapping="Wrap" Margin="12,-6,12,0" Style="{StaticResource PhoneTextSubtleStyle}"/>
+                    <TextBlock Text="{Binding LineFive}" TextWrapping="Wrap"  Margin="2,-6,12,0" Style="{StaticResource PhoneTextSubtleStyle}"/>
+                </StackPanel>
+                <StackPanel Margin="0,5,0,10" Orientation="Horizontal">
+                    <TextBlock Text="Phone:" TextWrapping="Wrap" Margin="12,-6,12,0" Style="{StaticResource PhoneTextSubtleStyle}"/>
+                    <TextBlock Text="{Binding LineSix}" TextWrapping="Wrap" Margin="2,-6,12,0" Style="{StaticResource PhoneTextSubtleStyle}"/>
+                </StackPanel>
+                <StackPanel Margin="0,5,0,10" Orientation="Horizontal">
+                    <TextBlock Text="Rating:" TextWrapping="Wrap" Margin="12,-6,12,0" Style="{StaticResource PhoneTextSubtleStyle}"/>
+                    <TextBlock Text="{Binding LineTwo}" TextWrapping="Wrap" Margin="2,-6,12,0" Style="{StaticResource PhoneTextSubtleStyle}"/>
+                </StackPanel>
+                <StackPanel Margin="0,5,0,10" Orientation="Horizontal">
+                    <TextBlock Text="Number Of Ratings:" TextWrapping="Wrap" Margin="12,-6,12,0" Style="{StaticResource PhoneTextSubtleStyle}"/>
+                    <TextBlock  Text="{Binding LineThree}" TextWrapping="Wrap" Margin="2,-6,12,0" Style="{StaticResource PhoneTextSubtleStyle}"/>
+                </StackPanel>
 
 
-                <TextBlock Text="Choose a rating from 1-10" Style="{StaticResource PhoneTextNormalStyle}" Margin="10,10,10,20" />
-                <TextBox Name="txtinput" Height="72" TextWrapping="Wrap" Grid.ColumnSpan="3" TextChanged="txtinput_TextChanged"/>
 
-                <Button x:Name="AddRating" Height ="80" Content="Add Rating" Grid.ColumnSpan="3" Margin="10,10, 10, 10" Click="AddRating_Click"  />
-          <!-- <Button x:Name ="SearchRestaurants" Content="Get Restaurant Rating" HorizontalAlignment="Left" Margin="10,10,0,10" VerticalAlignment="Top" Width="426" Click="SearchRestaurants_Click" Height="81"/>  -->
-                <TextBlock x:Name="txtop" TextWrapping="Wrap" Height ="22" Text=""/>
+                <StackPanel Margin="0,0,0,0" Orientation="Horizontal">
+                <TextBlock Text="Choose a rating from 1-10" Style="{StaticResource PhoneTextNormalStyle}" Margin="10,10,10,10" />
+                <TextBox Name="txtinput" Height="70" Width="100" TextWrapping="Wrap" Grid.ColumnSpan="3" TextChanged="txtinput_TextChanged"/>
+            </StackPanel>
+               
+            <Button x:Name="AddRating" Height ="80" Width="200" Content="Add Rating" Grid.ColumnSpan="3" Margin="0,0,10,0" Click="AddRating_Click"  />
+
+                <TextBlock x:Name="txtop1" TextWrapping="Wrap" Height ="40" Text="" Margin="60,10,60,0"/>
+               
+                <StackPanel Orientation="Horizontal" Margin="60,0,60,0" >
+                    <TextBlock x:Name="txtop2" Text="" TextWrapping="Wrap" Height ="40" Style="{StaticResource PhoneTextNormalStyle}" Margin="0,0,10,10" />
+                    <TextBlock x:Name="txtop" TextWrapping="Wrap" Height ="40" Text="" Style="{StaticResource PhoneTextNormalStyle}" Margin="0,0,10,10"/>
+                </StackPanel>
 
             </StackPanel>
-           
+
 
         </Grid>
 
-        
+
 
         <!--Uncomment to see an alignment grid to help ensure your controls are
             aligned on common boundaries.  The image has a top margin of -32px to

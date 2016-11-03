@@ -78,6 +78,9 @@ namespace VeganPhoneApp.ViewModels
                     LineTwo = item.Rating.ToString(),
                     LineThree = item.NumberOfRatings.ToString(),
                     LineFour = item.SumOfRatings.ToString(),
+                    LineFive = item.Address.ToString(),
+                    LineSix = item.Phone.ToString()
+                    
                     
                     
                    

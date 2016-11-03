@@ -21,6 +21,18 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
+        <StackPanel x:Name="TitlePanel" Grid.Row="0" Margin="12,17,0,35">
+            <TextBlock Text="Out and About Vegan" Style="{StaticResource PhoneTextNormalStyle}"/>
+           <!-- <Image Margin="9,9,9,9" Source="Assets/Images/pig.jpg"  Stretch="Fill" Height="158" RenderTransformOrigin="0.507,0.311"/>-->
+          
+        </StackPanel>
+        <StackPanel Margin="0, 100, 0,0">
+            <TextBlock Text="Select Restaurant to Add Your Rating" HorizontalAlignment="Center">
+
+            </TextBlock>
+        </StackPanel>
+
+
         <!-- LOCALIZATION NOTE:
             To localize the displayed strings copy their values to appropriately named
             keys in the app's neutral language resource file (AppResources.resx) then
@@ -52,7 +64,13 @@
                     <DataTemplate>
                         <StackPanel Margin="0,0,0,17">
                             <TextBlock Text="{Binding LineOne}" TextWrapping="Wrap" Style="{StaticResource PhoneTextExtraLargeStyle}"/>
-                            <TextBlock Text="{Binding LineTwo}" TextWrapping="Wrap" Margin="12,-6,12,0" Style="{StaticResource PhoneTextSubtleStyle}"/>
+                            <StackPanel Margin="0,0,0,17" Orientation="Horizontal">
+                                <TextBlock Text="Customer Rating:" TextWrapping="Wrap" Margin="12,-6,12,0" Style="{StaticResource PhoneTextSubtleStyle}"/>
+                                <TextBlock Text="{Binding LineTwo}" TextWrapping="Wrap" Margin="12,-6,12,0" Style="{StaticResource PhoneTextSubtleStyle}"/>
+
+                     
+
+                            </StackPanel>
                         </StackPanel>
                     </DataTemplate>
                 </phone:LongListSelector.ItemTemplate>

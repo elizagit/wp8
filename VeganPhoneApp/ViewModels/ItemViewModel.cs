@@ -117,6 +117,48 @@ namespace VeganPhoneApp.ViewModels
                 }
             }
         }
+        private string _lineFive;
+        /// <summary>
+        /// Sample ViewModel property; this property is used in the view to display its value using a Binding.
+        /// </summary>
+        /// <returns></returns>
+        public string LineFive
+        {
+            get
+            {
+                return _lineFive;
+            }
+            set
+            {
+                if (value != _lineFive)
+                {
+                    _lineFive = value;
+                    NotifyPropertyChanged("LineSix");
+                }
+            }
+        }
+
+
+        private string _lineSix;
+        /// <summary>
+        /// Sample ViewModel property; this property is used in the view to display its value using a Binding.
+        /// </summary>
+        /// <returns></returns>
+        public string LineSix
+        {
+            get
+            {
+                return _lineSix;
+            }
+            set
+            {
+                if (value != _lineSix)
+                {
+                    _lineSix = value;
+                    NotifyPropertyChanged("LineSix");
+                }
+            }
+        }
 
      
       /* private string _newRating;

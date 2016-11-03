@@ -80,21 +80,18 @@ namespace VeganPhoneApp
             double UpdatedRatingAfter = Math.Round(UpdatedRatingBefore, 0);
             int UpdateDatabase = Convert.ToInt32(UpdatedRatingAfter);
 
-            var updatedRestaurant = new Restaurant() { RestaurantID = yourResult.RestaurantID, RestaurantName = yourResult.RestaurantName, Rating = UpdateDatabase, SumOfRatings = NewSumOfRatings, NumberOfRatings = yourResult.NumberOfRatings};
+            var updatedRestaurant = new Restaurant() { RestaurantID = yourResult.RestaurantID, RestaurantName = yourResult.RestaurantName, Rating = UpdateDatabase, SumOfRatings = NewSumOfRatings, NumberOfRatings = yourResult.NumberOfRatings, Address = yourResult.Address, Phone = yourResult.Phone };
 
             response = await client.PutAsJsonAsync("api/Restaurant?name=" + name, updatedRestaurant);
-         // if (response.IsSuccessStatusCode)
-          //{
-             // Uri HealthyHabitsUrl = response.Headers.Location;
-
-              // HTTP PUT
-              //HealthyHabits.Rating = 4;   // Update price
-              //response = await client.PutAsJsonAsync(HealthyHabitsUrl, HealthyHabits);
-
-              // HTTP DELETEa
-              //response = await client.DeleteAsync(HealthyHabitsUrl);
+            if (response.IsSuccessStatusCode)
+            {
+                txtop1.Text = "Thanks! Your rating has been added";
+                // Uri HealthyHabitsUrl = response.Headers.Location;
+            }
+              
           
             txtop.Text = UpdateDatabase.ToString();
+            txtop2.Text = "New Rating:";
 
 
 

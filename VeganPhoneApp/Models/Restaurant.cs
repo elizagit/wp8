@@ -13,5 +13,11 @@ namespace VeganPhoneApp.Models
         public int Rating { get; set; }
         public int NumberOfRatings { get; set; }
         public int SumOfRatings { get; set; }
+
+        public string Address { get; set; }
+
+        //public byte[] Image { get; set; }
+
+        public int Phone { get; set; }
     }
 }
