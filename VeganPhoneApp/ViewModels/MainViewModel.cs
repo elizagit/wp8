@@ -44,6 +44,8 @@ namespace VeganPhoneApp.ViewModels
             set;
         }
 
+     
+
         /// <summary>
         /// Creates and adds a few ItemViewModel objects into the Items collection.
         /// </summary>

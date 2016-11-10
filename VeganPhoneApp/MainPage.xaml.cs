@@ -17,6 +17,7 @@ namespace VeganPhoneApp
 {
     public partial class MainPage : PhoneApplicationPage
     {
+        
         // Constructor
         public MainPage()
         {
@@ -32,6 +33,8 @@ namespace VeganPhoneApp
         // Load data for the ViewModel Items
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
+            
+
             if (!App.ViewModel.IsDataLoaded) 
             {
                 App.ViewModel.LoadData();
@@ -47,15 +50,34 @@ namespace VeganPhoneApp
             if (MainLongListSelector.SelectedItem == null)
                 return;
 
-            // Navigate to the new page
-            NavigationService.Navigate(new Uri("/DetailsPage.xaml?selectedItem=" + (MainLongListSelector.SelectedItem as ItemViewModel).ID, UriKind.Relative));
+           
+           
 
+           
+                NavigationService.Navigate(new Uri("/DetailsPage.xaml?selectedItem=" + (MainLongListSelector.SelectedItem as ItemViewModel).ID, UriKind.Relative));
+           
             // Reset selected item to null (no selection)
             MainLongListSelector.SelectedItem = null;
 
             
         }
+      
 
+
+        private void Add_Click(object sender, RoutedEventArgs e)
+        {
+
+            NavigationService.Navigate(new Uri("/AddRestaurant.xaml" , UriKind.Relative));
+
+        }
+       
+    /*    private void EditRestaurant_Click(object sender, SelectionChangedEventArgs e)
+        {
+
+            NavigationService.Navigate(new Uri("/EditRestaurant.xaml?selectedItem=" + (MainLongListSelector.SelectedItem as ItemViewModel).ID, UriKind.Relative));
+
+        }
+        /*
        
        /*      private void SearchRestaurants_Click(object sender, RoutedEventArgs e)
         {

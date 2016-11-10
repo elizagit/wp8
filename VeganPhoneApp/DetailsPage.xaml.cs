@@ -46,8 +46,17 @@ namespace VeganPhoneApp
         }
              private void txtinput_TextChanged(object sender, TextChangedEventArgs e)
         {
+                 
 
         }
+
+             private async void Test_Click(object sender, RoutedEventArgs e)
+             {
+                 PhoneApplicationService.Current.State["DataContext"] = yourObject;
+                 NavigationService.Navigate(new Uri("/view/Page.xaml", UriKind.Relative));
+             }
+//In the Page.xaml-page
+var obj = PhoneApplicationService.Current.State["MyObject"];
 
          private async void AddRating_Click(object sender, RoutedEventArgs e)
         {
@@ -91,7 +100,7 @@ namespace VeganPhoneApp
               
           
             txtop.Text = UpdateDatabase.ToString();
-            txtop2.Text = "New Rating:";
+            txtop2.Text = "New Rating for " + name + ":";
 
 
 
@@ -99,6 +108,12 @@ namespace VeganPhoneApp
            
              
           
+         }
+
+         private void Edit_Click(object sender, RoutedEventArgs e)
+         {
+           NavigationService.Navigate(new Uri("/EditRestaurant.xaml?parameter=" + Name.Text, UriKind.Relative));
+
          }
 
         }

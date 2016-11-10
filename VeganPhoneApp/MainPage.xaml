@@ -23,11 +23,14 @@
 
         <StackPanel x:Name="TitlePanel" Grid.Row="0" Margin="12,17,0,35">
             <TextBlock Text="Out and About Vegan" Style="{StaticResource PhoneTextNormalStyle}"/>
-           <!-- <Image Margin="9,9,9,9" Source="Assets/Images/pig.jpg"  Stretch="Fill" Height="158" RenderTransformOrigin="0.507,0.311"/>-->
-          
+
         </StackPanel>
-        <StackPanel Margin="0, 100, 0,0">
-            <TextBlock Text="Select Restaurant to Add Your Rating" HorizontalAlignment="Center">
+        <StackPanel>
+            <Button MinHeight ="20" Width="210" Margin="12,40,12,20" Content="Add Restaurant" Grid.ColumnSpan="3" Click ="Add_Click" x:Name="Add"
+               HorizontalAlignment="Right" HorizontalContentAlignment="Stretch"/>
+             </StackPanel>
+        <StackPanel Margin="12, 120, 0,0">
+            <TextBlock Text="Select Restaurant to Add Your Rating" Style="{StaticResource PhoneTextAccentStyle}" >
 
             </TextBlock>
         </StackPanel>
@@ -57,7 +60,7 @@
 
 
         <!--ContentPanel contains LongListSelector and LongListSelector ItemTemplate. Place additional content here-->
-        <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
+        <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,12,12,0">
 
             <phone:LongListSelector x:Name="MainLongListSelector" Margin="0,0,-12,0" ItemsSource="{Binding Items}" SelectionChanged="MainLongListSelector_SelectionChanged">
                 <phone:LongListSelector.ItemTemplate>
@@ -65,10 +68,12 @@
                         <StackPanel Margin="0,0,0,17">
                             <TextBlock Text="{Binding LineOne}" TextWrapping="Wrap" Style="{StaticResource PhoneTextExtraLargeStyle}"/>
                             <StackPanel Margin="0,0,0,17" Orientation="Horizontal">
+                                
                                 <TextBlock Text="Customer Rating:" TextWrapping="Wrap" Margin="12,-6,12,0" Style="{StaticResource PhoneTextSubtleStyle}"/>
                                 <TextBlock Text="{Binding LineTwo}" TextWrapping="Wrap" Margin="12,-6,12,0" Style="{StaticResource PhoneTextSubtleStyle}"/>
 
-                     
+
+
 
                             </StackPanel>
                         </StackPanel>
