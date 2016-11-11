@@ -151,6 +151,9 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="..\.gitattributes">
+      <Link>.gitattributes</Link>
+    </Content>
     <Content Include="Assets\AlignmentGrid.png" />
     <Content Include="Assets\ApplicationIcon.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
