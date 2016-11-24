@@ -22,8 +22,8 @@
 
         <!--TitlePanel contains the name of the application and page title-->
         <StackPanel Grid.Row="0" Margin="12,17,0,28">
-            <TextBlock Text="Out and About Vegan" Style="{StaticResource PhoneTextNormalStyle}"/>
-            <TextBlock Text="Add Restaurant" HorizontalAlignment="Center" Margin="9,10,0,0" Style="{StaticResource PhoneTextTitle2Style}"/>
+            <TextBlock Text="Vegan Restaurant Rater" Style="{StaticResource PhoneTextExtraLargeStyle}"/>
+            <TextBlock Text="Add a Restaurant" Foreground="Yellow" HorizontalAlignment="Center" Margin="9,10,0,0" Style="{StaticResource PhoneTextTitle2Style}"/>
         </StackPanel>
 
 
@@ -36,6 +36,8 @@
                 <TextBox Name="inputAddress"></TextBox>
                 <TextBlock Text="Phone Number"></TextBlock>
                 <TextBox Name="inputphonenumber"></TextBox>
+                <TextBlock Text="Rating"></TextBlock>
+                <TextBox Name="inputrating"></TextBox>
                
                
 
@@ -48,7 +50,7 @@
 
 
                 </StackPanel>
-                <TextBlock x:Name="txtop" TextWrapping="Wrap" Height ="40" Text=""/>
+                <TextBlock x:Name="txtop" TextWrapping="Wrap" Height ="100" Text=""/>
 
             </StackPanel>
 

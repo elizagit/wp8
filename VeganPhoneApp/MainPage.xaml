@@ -1,4 +1,5 @@
-﻿<phone:PhoneApplicationPage x:Name="SearchRestaurants1"
+﻿
+    <phone:PhoneApplicationPage x:Name="SearchRestaurants1"
     x:Class="VeganPhoneApp.MainPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -21,19 +22,19 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <StackPanel x:Name="TitlePanel" Grid.Row="0" Margin="12,17,0,35">
-            <TextBlock Text="Out and About Vegan" Style="{StaticResource PhoneTextNormalStyle}"/>
+        <StackPanel x:Name="TitlePanel" Grid.Row="0" Margin="12,17,12,35">
+            <TextBlock Text="Vegan Restaurant Rater" Style="{StaticResource PhoneTextExtraLargeStyle}"/>
 
         </StackPanel>
         <StackPanel>
-            <Button MinHeight ="20" Width="210" Margin="12,40,12,20" Content="Add Restaurant" Grid.ColumnSpan="3" Click ="Add_Click" x:Name="Add"
-               HorizontalAlignment="Right" HorizontalContentAlignment="Stretch"/>
+            <Button MinHeight ="20" Foreground="Yellow" Width="220" Margin="12,70,12,0" Content="Add a Restaurant" Grid.ColumnSpan="3" Click ="Add_Click" x:Name="Add"
+               HorizontalAlignment="Right" BorderThickness="0,0" HorizontalContentAlignment="Stretch"/>
              </StackPanel>
-        <StackPanel Margin="12, 120, 0,0">
-            <TextBlock Text="Select Restaurant to Add Your Rating" Style="{StaticResource PhoneTextAccentStyle}" >
+        <!--<StackPanel Margin="12, 120, 0,0">
+          <TextBlock Text="Click restaurant to add a rating" Foreground="White" FontSize="30" Style="{StaticResource PhoneTextAccentStyle}" > 
 
             </TextBlock>
-        </StackPanel>
+        </StackPanel> -->
 
 
         <!-- LOCALIZATION NOTE:
@@ -60,17 +61,18 @@
 
 
         <!--ContentPanel contains LongListSelector and LongListSelector ItemTemplate. Place additional content here-->
-        <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,12,12,0">
+        <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
 
-            <phone:LongListSelector x:Name="MainLongListSelector" Margin="0,0,-12,0" ItemsSource="{Binding Items}" SelectionChanged="MainLongListSelector_SelectionChanged">
+            <phone:LongListSelector x:Name="MainLongListSelector" Margin="0,-20,0,0" ItemsSource="{Binding Items}" SelectionChanged="MainLongListSelector_SelectionChanged">
                 <phone:LongListSelector.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Margin="0,0,0,17">
-                            <TextBlock Text="{Binding LineOne}" TextWrapping="Wrap" Style="{StaticResource PhoneTextExtraLargeStyle}"/>
-                            <StackPanel Margin="0,0,0,17" Orientation="Horizontal">
+                            <TextBlock Text="{Binding LineOne}" Foreground="Aqua" TextWrapping="Wrap" Style="{StaticResource PhoneTextExtraLargeStyle}" />
+                            <StackPanel Margin="0,0,0,14" Orientation="Horizontal">
                                 
-                                <TextBlock Text="Customer Rating:" TextWrapping="Wrap" Margin="12,-6,12,0" Style="{StaticResource PhoneTextSubtleStyle}"/>
-                                <TextBlock Text="{Binding LineTwo}" TextWrapping="Wrap" Margin="12,-6,12,0" Style="{StaticResource PhoneTextSubtleStyle}"/>
+                                <TextBlock Text="Average Customer Rating:" TextWrapping="Wrap" Margin="12,-3,12,0" Foreground="White" Style="{StaticResource PhoneTextSubtleStyle}"/>
+                                <TextBlock Text="{Binding LineTwo}"  FontSize="30" TextWrapping="Wrap" Width="40" Height="50" Margin="0,-8,2,0" Style="{StaticResource PhoneTextAccentStyle}"/>
+                                <TextBlock Text="Add a Rating" Style="{StaticResource PhoneTextAccentStyle}" Foreground="White" TextWrapping="Wrap" Margin="0,-3,0,0"  /> 
 
 
 

@@ -21,43 +21,43 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <!--TitlePanel contains the name of the application and page title-->
-        <StackPanel x:Name="TitlePanel" Grid.Row="0" Margin="12,17,0,35">
-            <TextBlock Text="Out and About Vegan" Style="{StaticResource PhoneTextNormalStyle}"/>
+        <StackPanel x:Name="TitlePanel" Grid.Row="0" Margin="12,17,12,10">
+            <TextBlock Text="Vegan Restaurant Rater" Style="{StaticResource PhoneTextExtraLargeStyle}"/>
             <!--<Image Margin="9,9,9,9" Source="Assets/Images/pig.jpg"  Stretch="Fill" Height="158" RenderTransformOrigin="0.507,0.311"/>-->
+            <Button Content="Edit" Margin="0, -10, 0,-10" BorderThickness="0,0" HorizontalAlignment="Right" Foreground="Yellow" x:Name="btnNavigate" Click="Edit_Click"/>
 
-            <TextBlock Name ="Name" Text="{Binding LineOne}" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
-       <Button Content="Edit" x:Name="btnNavigate" Click="Edit_Click"/>
+            <TextBlock Name ="Name" Foreground="Aqua" Text="{Binding LineOne}" Margin="12,-30,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
         </StackPanel>
 
         <!--ContentPanel contains details text. Place additional content here-->
         <Grid x:Name="ContentPanel" Margin="12,0,12,0" Grid.Row="1" >
 
-            <StackPanel x:Name="RestaurantDetails" Margin="10,0,0,0" >
+            <StackPanel x:Name="RestaurantDetails" Margin="12,0,0,0" >
                 <StackPanel Margin="0,0,0,10" Orientation="Horizontal">
-                    <TextBlock Text="Address:" TextWrapping="Wrap" Margin="12,-6,12,0" Style="{StaticResource PhoneTextSubtleStyle}"/>
-                    <TextBlock Text="{Binding LineFive}" TextWrapping="Wrap"  Margin="2,-6,12,0" Style="{StaticResource PhoneTextSubtleStyle}"/>
+                    <TextBlock Text="Address:" TextWrapping="Wrap" Margin="12,-6,12,0" Style="{StaticResource PhoneTextNormalStyle}"/>
+                    <TextBlock Text="{Binding LineFive}" TextWrapping="Wrap"  Margin="2,-6,12,0" Style="{StaticResource PhoneTextNormalStyle}"/>
                 </StackPanel>
                 <StackPanel Margin="0,5,0,10" Orientation="Horizontal">
-                    <TextBlock Text="Phone:" TextWrapping="Wrap" Margin="12,-6,12,0" Style="{StaticResource PhoneTextSubtleStyle}"/>
-                    <TextBlock Text="{Binding LineSix}" TextWrapping="Wrap" Margin="2,-6,12,0" Style="{StaticResource PhoneTextSubtleStyle}"/>
+                    <TextBlock Text="Phone:" TextWrapping="Wrap" Margin="12,-6,12,0" Style="{StaticResource PhoneTextNormalStyle}"/>
+                    <TextBlock Text="{Binding LineSix}" TextWrapping="Wrap" Margin="2,-6,12,0" Style="{StaticResource PhoneTextNormalStyle}"/>
                 </StackPanel>
                 <StackPanel Margin="0,5,0,10" Orientation="Horizontal">
-                    <TextBlock Text="Rating:" TextWrapping="Wrap" Margin="12,-6,12,0" Style="{StaticResource PhoneTextSubtleStyle}"/>
-                    <TextBlock Text="{Binding LineTwo}" TextWrapping="Wrap" Margin="2,-6,12,0" Style="{StaticResource PhoneTextSubtleStyle}"/>
+                    <TextBlock Text="Rating:" TextWrapping="Wrap" Margin="12,-6,12,0" Style="{StaticResource PhoneTextNormalStyle}"/>
+                    <TextBlock Text="{Binding LineTwo}" TextWrapping="Wrap" Margin="2,-6,12,0" Style="{StaticResource PhoneTextAccentStyle}"/>
                 </StackPanel>
                 <StackPanel Margin="0,5,0,10" Orientation="Horizontal">
-                    <TextBlock Text="Number Of Ratings:" TextWrapping="Wrap" Margin="12,-6,12,0" Style="{StaticResource PhoneTextSubtleStyle}"/>
-                    <TextBlock  Text="{Binding LineThree}" TextWrapping="Wrap" Margin="2,-6,12,0" Style="{StaticResource PhoneTextSubtleStyle}"/>
+                    <TextBlock Text="Number Of Ratings:" TextWrapping="Wrap" Margin="12,-6,12,0" Style="{StaticResource PhoneTextNormalStyle}"/>
+                    <TextBlock  Text="{Binding LineThree}" TextWrapping="Wrap" Margin="2,-6,12,0"  Style="{StaticResource PhoneTextNormalStyle}"/>
                 </StackPanel>
 
 
 
-                <StackPanel Margin="0,0,0,0" Orientation="Horizontal">
-                <TextBlock Text="Choose a rating from 1-10" Style="{StaticResource PhoneTextNormalStyle}" Margin="10,10,10,10" />
-                <TextBox Name="txtinput" Height="70" Width="100" TextWrapping="Wrap" Grid.ColumnSpan="3" TextChanged="txtinput_TextChanged"/>
+                <StackPanel Margin="0,0,0,0" Orientation="Vertical">
+                <TextBlock Text="Choose a rating from 1-10" Style="{StaticResource PhoneTextNormalStyle}" Margin="12,10,10,10" />
+                <TextBox Name="txtinput" Height="70"  Width="100" TextWrapping="Wrap" Grid.ColumnSpan="3" TextChanged="txtinput_TextChanged"/>
             </StackPanel>
-               
-            <Button x:Name="AddRating" Height ="80" Width="300" Content="Add Rating" Grid.ColumnSpan="3" Margin="0,0,10,0" Click="AddRating_Click"  />
+
+                <Button x:Name="AddRating" BorderThickness="0,0" Height ="80" Width="300" Content="Add Rating" Grid.ColumnSpan="3" Margin="0,0,10,0" Click="AddRating_Click"  />
 
                 <TextBlock x:Name="txtop1" TextWrapping="Wrap" Height ="40" Text="" Margin="60,10,60,0"/>
                

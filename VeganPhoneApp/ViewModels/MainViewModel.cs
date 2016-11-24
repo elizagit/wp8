@@ -55,7 +55,8 @@ namespace VeganPhoneApp.ViewModels
            HttpClient client = new HttpClient();
             
 
-                client.BaseAddress = new Uri("http://169.254.21.12");
+                //client.BaseAddress = new Uri("http://169.254.21.12");
+           client.BaseAddress = new Uri("http://veganrestaurantrater.azurewebsites.net");
 
                 var url = "api/Restaurant";
 

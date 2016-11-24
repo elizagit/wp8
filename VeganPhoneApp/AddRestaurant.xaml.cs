@@ -34,20 +34,24 @@ namespace VeganPhoneApp
             HttpClient client = new HttpClient();
 
 
-            client.BaseAddress = new Uri("http://169.254.21.12");
+            //client.BaseAddress = new Uri("http://169.254.21.12");
+            client.BaseAddress = new Uri("http://veganrestaurantrater.azurewebsites.net");
 
 
 
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
-            var restaurant = new Restaurant() { RestaurantName = restaurantNameInput.Text, Address = inputAddress.Text, Phone = Convert.ToInt32(inputphonenumber.Text) };
+            var restaurant = new Restaurant() { RestaurantName = restaurantNameInput.Text, Address = inputAddress.Text, Phone = Convert.ToInt32(inputphonenumber.Text), Rating = Convert.ToInt32(inputrating.Text),
+                                                NumberOfRatings = 1,
+                                                SumOfRatings = Convert.ToInt32(inputrating.Text)
+                                               };
 
             HttpResponseMessage response = await client.PostAsJsonAsync("api/restaurant", restaurant);
             if (response.IsSuccessStatusCode)
             {
                 Uri newRestaurant = response.Headers.Location;
 
-                txtop.Text = "Thanks! Your restaurant has beed added";
+                txtop.Text = "Thanks! Your restaurant has been added " + newRestaurant;
 
                 // HTTP PUT
                 // HealthyHabits.Rating = 4;   // Update price
