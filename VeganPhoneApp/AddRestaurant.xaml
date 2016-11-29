@@ -21,9 +21,9 @@
         </Grid.RowDefinitions>
 
         <!--TitlePanel contains the name of the application and page title-->
-        <StackPanel Grid.Row="0" Margin="12,17,0,28">
+        <StackPanel Grid.Row="0" Margin="12,17,0,12">
             <TextBlock Text="Vegan Restaurant Rater" Style="{StaticResource PhoneTextExtraLargeStyle}"/>
-            <TextBlock Text="Add a Restaurant" Foreground="Yellow" HorizontalAlignment="Center" Margin="9,10,0,0" Style="{StaticResource PhoneTextTitle2Style}"/>
+            <TextBlock Text="Add a Restaurant" Foreground ="DarkCyan" HorizontalAlignment="Center" Margin="9,10,0,0" Style="{StaticResource PhoneTextExtraLargeStyle}"/>
         </StackPanel>
 
 

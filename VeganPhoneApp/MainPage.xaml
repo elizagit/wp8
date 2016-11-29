@@ -27,8 +27,8 @@
 
         </StackPanel>
         <StackPanel>
-            <Button MinHeight ="20" Foreground="Yellow" Width="220" Margin="12,70,12,0" Content="Add a Restaurant" Grid.ColumnSpan="3" Click ="Add_Click" x:Name="Add"
-               HorizontalAlignment="Right" BorderThickness="0,0" HorizontalContentAlignment="Stretch"/>
+            <Button MinHeight ="20" Width="220" Margin="12,70,12,0" Content="Add a Restaurant" Grid.ColumnSpan="3" Click ="Add_Click" x:Name="Add"
+               HorizontalAlignment="Right" Foreground ="DarkCyan" BorderThickness="0,0" HorizontalContentAlignment="Stretch"/>
              </StackPanel>
         <!--<StackPanel Margin="12, 120, 0,0">
           <TextBlock Text="Click restaurant to add a rating" Foreground="White" FontSize="30" Style="{StaticResource PhoneTextAccentStyle}" > 
@@ -61,18 +61,18 @@
 
 
         <!--ContentPanel contains LongListSelector and LongListSelector ItemTemplate. Place additional content here-->
-        <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
+        <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,0,0">
 
             <phone:LongListSelector x:Name="MainLongListSelector" Margin="0,-20,0,0" ItemsSource="{Binding Items}" SelectionChanged="MainLongListSelector_SelectionChanged">
                 <phone:LongListSelector.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Margin="0,0,0,17">
-                            <TextBlock Text="{Binding LineOne}" Foreground="Aqua" TextWrapping="Wrap" Style="{StaticResource PhoneTextExtraLargeStyle}" />
+                            <TextBlock Text="{Binding LineOne}"  TextWrapping="Wrap" Style="{StaticResource PhoneTextExtraLargeStyle}" />
                             <StackPanel Margin="0,0,0,14" Orientation="Horizontal">
                                 
-                                <TextBlock Text="Average Customer Rating:" TextWrapping="Wrap" Margin="12,-3,12,0" Foreground="White" Style="{StaticResource PhoneTextSubtleStyle}"/>
-                                <TextBlock Text="{Binding LineTwo}"  FontSize="30" TextWrapping="Wrap" Width="40" Height="50" Margin="0,-8,2,0" Style="{StaticResource PhoneTextAccentStyle}"/>
-                                <TextBlock Text="Add a Rating" Style="{StaticResource PhoneTextAccentStyle}" Foreground="White" TextWrapping="Wrap" Margin="0,-3,0,0"  /> 
+                                <TextBlock Text="Average Customer Rating:" TextWrapping="Wrap" Margin="14,-1,20,0" Style="{StaticResource PhoneTextSubtleStyle}"/>
+                                <TextBlock Text="{Binding LineTwo}"  FontSize="30" TextWrapping="Wrap" Width="40" Height="50" Margin="0,-8,10,0" Style="{StaticResource PhoneTextBlockBase}"/>
+                                <TextBlock Text="Add a Rating" TextAlignment="Right" Style="{StaticResource PhoneTextAccentStyle}"  TextWrapping="Wrap" Margin="0,-1,0,0"  /> 
 
 
 

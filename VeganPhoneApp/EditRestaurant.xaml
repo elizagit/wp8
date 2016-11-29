@@ -22,19 +22,14 @@
         </Grid.RowDefinitions>
 
         <!--TitlePanel contains the name of the application and page title-->
-        <StackPanel Grid.Row="0" Margin="12,17,0,28" >
+        <StackPanel Grid.Row="0" Margin="12,17,0,0" Height="124" VerticalAlignment="Top" >
             <TextBlock Text="Vegan Restaurant Rater" Style="{StaticResource PhoneTextExtraLargeStyle}"/>
-            <!--<TextBlock Text="Edit Restaurant" HorizontalAlignment="Center" Margin="9,10,0,0" Style="{StaticResource PhoneTextTitle2Style}"/>-->
-            <TextBlock x:Name ="Name" Text="" Margin="9,10,0,0" Style="{StaticResource PhoneTextTitle2Style}"/>
+            <TextBlock x:Name ="Name" Text="" Foreground ="DarkCyan" HorizontalAlignment="Center" Margin="9,10,0,0" Style="{StaticResource PhoneTextExtraLargeStyle}"/>
         </StackPanel>
 
         <StackPanel x:Name="Edit" Grid.Row="1" Margin="10,0,0,0" Orientation="Vertical" >
 
-            <!--  <TextBlock Name ="RestaurantName" Text="{Binding LineOne}" Margin="10,0,0,0" FontSize="26"  TextWrapping="Wrap" Style="{StaticResource PhoneTextNormalStyle}"/> -->
-
-            <!-- <TextBlock Text="{Binding LineFive}" Margin="10,0,0,0" FontSize="26"  TextWrapping="Wrap" Style="{StaticResource PhoneTextNormalStyle}"/> -->
-            <!-- <TextBlock  Text="{Binding LineSix}" Margin="10,10,0,10" FontSize="26" TextWrapping="Wrap" Style="{StaticResource PhoneTextNormalStyle}"/> -->
-
+           
         </StackPanel>
 
 
@@ -42,7 +37,7 @@
 
 
         <!--ContentPanel - place additional content here-->
-        <Grid x:Name="ContentPanel" Grid.Row="2" Margin="12,20,12,0">
+        <Grid x:Name="ContentPanel" Grid.Row="2" Margin="12,0,12,0">
             <StackPanel Orientation="Vertical" Margin="10">
                 <TextBlock Text="Restaurant Name"/>
                 <TextBox Name="restaurantNameInput"></TextBox>
@@ -50,6 +45,24 @@
                 <TextBox Name="inputAddress"></TextBox>
                 <TextBlock Text="Phone Number"></TextBlock>
                 <TextBox Name="inputphonenumber"></TextBox>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Rating" Margin="10,0,10,10">
+                    </TextBlock>
+                    <TextBlock x:Name ="Rating"  Text=""></TextBlock>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Number Of Ratings" Margin="10,0,10,10"></TextBlock>
+                    <TextBlock x:Name ="NumberOfRatings" Text=""></TextBlock>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Sum Of Ratings" Margin="10,0,10,10"></TextBlock>
+                    <TextBlock x:Name ="SumOfRatings" Text=""></TextBlock>
+                </StackPanel>
+               <!--<StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Restaurant ID"></TextBlock>
+                    <TextBlock x:Name ="RestaurantID" Text=""></TextBlock>
+                </StackPanel> -->
+
 
 
                 <StackPanel Orientation="Horizontal">
@@ -57,7 +70,7 @@
                     <Button Content="Cancel" Click ="Cancel_Click"/>
 
                 </StackPanel>
-                <TextBlock x:Name="txtop" TextWrapping="Wrap" Height ="40" Text=""/>
+                <TextBlock x:Name="txtop" Margin ="20" TextWrapping="Wrap" Height ="40" Text=""/>
 
             </StackPanel>
         </Grid>

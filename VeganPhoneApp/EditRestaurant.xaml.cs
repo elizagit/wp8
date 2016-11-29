@@ -26,14 +26,26 @@ namespace VeganPhoneApp
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            base.OnNavigatedTo(e);
+           /* base.OnNavigatedTo(e);
             string parameter = string.Empty;
             if (NavigationContext.QueryString.TryGetValue("parameter", out parameter))
             {
                 Name.Text = "Edit " + parameter;
-            }
+            }*/
 
+            string name = NavigationContext.QueryString["name"];
+            Name.Text = "Edit " + name;
+            string rating = NavigationContext.QueryString["rating"];
+            Rating.Text = rating ;
+            string numberofratings = NavigationContext.QueryString["numberofratings"];
+            NumberOfRatings.Text = numberofratings;
+            
+            
+            string sumofratings = NavigationContext.QueryString["sumofratings"];
+            SumOfRatings.Text = sumofratings;
+           
         }
+
 
         private async void Update_Click(object sender, RoutedEventArgs e)
         {
@@ -47,27 +59,22 @@ namespace VeganPhoneApp
 
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
-            var restaurant = new Restaurant() { RestaurantName = restaurantNameInput.Text, Address = inputAddress.Text, Phone = Convert.ToInt32(inputphonenumber.Text) };
+            var restaurant = new Restaurant() { RestaurantName = restaurantNameInput.Text, Address = inputAddress.Text, Phone = Convert.ToInt32(inputphonenumber.Text), Rating = Convert.ToInt32(Rating.Text), NumberOfRatings = Convert.ToInt32(NumberOfRatings.Text), SumOfRatings = Convert.ToInt32(SumOfRatings.Text) };
 
             HttpResponseMessage response = await client.PutAsJsonAsync("api/restaurant/" + restaurantNameInput.Text, restaurant);
             if (response.IsSuccessStatusCode)
             {
                 Uri newRestaurant = response.Headers.Location;
 
-                txtop.Text = "Thanks! Your restaurant has beed added";
+                txtop.Text = "Thanks! Your restaurant has been updated";
 
-                // HTTP PUT
-                // HealthyHabits.Rating = 4;   // Update price
-                // response = await client.PutAsJsonAsync(HealthyHabitsUrl, HealthyHabits);
-
-                // HTTP DELETE
-                //response = await client.DeleteAsync(HealthyHabitsUrl);
+           
             }
         }
 
         private void Cancel_Click(object sender, RoutedEventArgs e)
         {
-
+            NavigationService.Navigate(new Uri("/MainPage.xaml", UriKind.Relative));
         }
     }
 }
